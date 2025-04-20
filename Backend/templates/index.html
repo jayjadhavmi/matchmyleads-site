@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Domain Matcher</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Domain Matcher</h1>
+        
+        <div id="message" class="message"></div>
+        
+        <form id="upload-form">
+            <div class="form-group">
+                <label for="file1">SFDC File:</label>
+                <input type="file" id="file1" name="file1" accept=".xlsx,.xls" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="file2">Input File:</label>
+                <input type="file" id="file2" name="file2" accept=".xlsx,.xls" required>
+            </div>
+            
+            <div class="form-group">
+                <button type="button" id="load-columns-btn">Load Columns</button>
+            </div>
+            
+            <div id="columns-section" style="display: none;">
+                <div class="form-group">
+                    <label for="match_column_input">Match Column (Input File):</label>
+                    <select id="match_column_input" name="match_column_input" required></select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="match_column_sfdc">Match Column (SFDC File):</label>
+                    <select id="match_column_sfdc" name="match_column_sfdc" required></select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="return_columns">Return Columns (SFDC):</label>
+                    <select id="return_columns" name="return_columns[]" multiple required></select>
+                    <small>(Hold Ctrl/Cmd to select multiple)</small>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" id="match-btn">Match Files</button>
+                </div>
+            </div>
+        </form>
+        
+        <div id="loading" style="display: none;">
+            Processing...
+        </div>
+    </div>
+    
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
